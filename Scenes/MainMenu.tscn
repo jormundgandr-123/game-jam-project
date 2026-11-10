@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dpehtneffrbx7"]
+
+[node name="Main_Menu" type="Node2D" unique_id=1500208284]
+
+[node name="Button_Manager" type="Control" parent="." unique_id=2112309362]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="Button_Manager" unique_id=1307137806]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 183.0
+offset_right = 705.0
+offset_bottom = 272.0
+text = "Start"
