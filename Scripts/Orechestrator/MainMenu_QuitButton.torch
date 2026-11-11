@@ -1,0 +1,102 @@
+[orchestration type="OScript" load_steps=6 format=4 uid="uid://ont3dquxo820"]
+
+[obj type="OScriptFunction" id="OScriptFunction_8saeu"]
+guid = "0D438A96-074E-491C-9572-131C1B076754"
+method = {
+"name": &"_on_button_up"
+}
+id = 0
+
+[obj type="OScriptGraph" id="OScriptGraph_orolp"]
+graph_name = &"EventGraph"
+flags = 8
+nodes = Array[int]([0, 1, 2])
+functions = Array[int]([0])
+
+[obj type="OScriptNodeEvent" id="OScriptNodeEvent_ghw46"]
+function_id = "0D438A96-074E-491C-9572-131C1B076754"
+id = 0
+position = Vector2(140, 240)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_853f1"]
+function_name = &"get_tree"
+target_class_name = "Node"
+target_type = 24
+flags = 522
+method = {
+"name": &"get_tree",
+"return": {
+"type": 24,
+"class_name": &"SceneTree"
+},
+"flags": 5
+}
+chain = false
+id = 1
+position = Vector2(140, 340)
+pin_data = Array[Dictionary]([{
+"pin_name": &"target",
+"type": 24,
+"flags": 2050,
+"label": "Node",
+"target_class": "Node"
+}, {
+"pin_name": &"return_value",
+"type": 24,
+"dir": 1,
+"flags": 2,
+"label": "SceneTree",
+"target_class": "SceneTree",
+"dv": null
+}])
+
+[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_8saeu"]
+function_name = &"quit"
+target_class_name = "SceneTree"
+target_type = 24
+flags = 520
+method = {
+"name": &"quit",
+"default_args": [0],
+"args": [{
+"name": &"exit_code",
+"type": 2
+}]
+}
+chain = false
+id = 2
+size = Vector2(178, 126)
+position = Vector2(480, 240)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"target",
+"type": 24,
+"flags": 2050,
+"label": "SceneTree",
+"target_class": "SceneTree",
+"dv": null
+}, {
+"pin_name": &"exit_code",
+"type": 2,
+"flags": 2,
+"dv": 0
+}, {
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[resource]
+base_type = &"Button"
+brief_description = "Empty template suitable for all Objects"
+functions = Array[OScriptFunction]([SubResource("OScriptFunction_8saeu")])
+connections = Array[int]([0, 0, 2, 0, 1, 0, 2, 1])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_ghw46"), SubResource("OScriptNodeCallMemberFunction_853f1"), SubResource("OScriptNodeCallMemberFunction_8saeu")])
+graphs = Array[OScriptGraph]([SubResource("OScriptGraph_orolp")])

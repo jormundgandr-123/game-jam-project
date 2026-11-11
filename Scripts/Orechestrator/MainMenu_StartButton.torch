@@ -1,0 +1,71 @@
+[orchestration type="OScript" load_steps=5 format=4 uid="uid://dusjoh13agi38"]
+
+[obj type="OScriptFunction" id="OScriptFunction_tt5f1"]
+guid = "0AEB4DC9-03EE-4E70-9FE9-834D703D1AC9"
+method = {
+"name": &"_on_button_up"
+}
+id = 4
+
+[obj type="OScriptGraph" id="OScriptGraph_10o0e"]
+graph_name = &"EventGraph"
+flags = 8
+nodes = Array[int]([2, 4])
+functions = Array[int]([4])
+
+[obj type="OScriptNodePrintString" id="OScriptNodePrintString_853f1"]
+id = 2
+size = Vector2(217, 216)
+position = Vector2(459.8538818359375, 433.72137451171875)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"Text",
+"type": 4,
+"flags": 2,
+"dv": "Hello"
+}, {
+"pin_name": &"PrintToScreen",
+"type": 1,
+"flags": 2,
+"dv": true
+}, {
+"pin_name": &"PrintToLog",
+"type": 1,
+"flags": 2,
+"dv": true
+}, {
+"pin_name": &"TextColor",
+"type": 20,
+"flags": 2,
+"dv": Color(1, 1, 1, 1)
+}, {
+"pin_name": &"Duration",
+"type": 3,
+"flags": 2,
+"dv": 2,
+"gdv": 0
+}, {
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[obj type="OScriptNodeEvent" id="OScriptNodeEvent_853f1"]
+function_id = "0AEB4DC9-03EE-4E70-9FE9-834D703D1AC9"
+id = 4
+position = Vector2(200, 440)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[resource]
+base_type = &"Button"
+description = "Base template for Node with default Godot cycle methods."
+functions = Array[OScriptFunction]([SubResource("OScriptFunction_tt5f1")])
+connections = Array[int]([4, 0, 2, 0])
+nodes = Array[OScriptNode]([SubResource("OScriptNodePrintString_853f1"), SubResource("OScriptNodeEvent_853f1")])
+graphs = Array[OScriptGraph]([SubResource("OScriptGraph_10o0e")])

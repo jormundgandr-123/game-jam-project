@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://dpehtneffrbx7"]
 
+[ext_resource type="Script" uid="uid://dusjoh13agi38" path="res://Scripts/Orechestrator/MainMenu_StartButton.torch" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://ont3dquxo820" path="res://Scripts/Orechestrator/MainMenu_QuitButton.torch" id="2_853f1"]
+[ext_resource type="Script" uid="uid://cxswjxrpdx8mb" path="res://Scripts/Orechestrator/MainMenu_ItchioButton.torch" id="3_8saeu"]
+
 [node name="Main_Menu" type="Node2D" unique_id=1500208284]
 
 [node name="Button_Manager" type="Control" parent="." unique_id=2112309362]
@@ -16,3 +20,26 @@ offset_top = 183.0
 offset_right = 705.0
 offset_bottom = 272.0
 text = "Start"
+script = ExtResource("1_tt5f1")
+
+[node name="Quit" type="Button" parent="Button_Manager" unique_id=1165936996]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 331.0
+offset_right = 704.0
+offset_bottom = 420.0
+text = "Quit"
+script = ExtResource("2_853f1")
+
+[node name="ItchIo" type="Button" parent="Button_Manager" unique_id=611263822]
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 532.0
+offset_right = 1121.0
+offset_bottom = 608.0
+text = "Itch io"
+script = ExtResource("3_8saeu")
+
+[connection signal="button_up" from="Button_Manager/Start" to="Button_Manager/Start" method="_on_button_up"]
+[connection signal="button_up" from="Button_Manager/Quit" to="Button_Manager/Quit" method="_on_button_up"]
+[connection signal="button_up" from="Button_Manager/ItchIo" to="Button_Manager/ItchIo" method="_on_button_up"]
