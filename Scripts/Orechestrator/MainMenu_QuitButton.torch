@@ -51,8 +51,7 @@ pin_data = Array[Dictionary]([{
 "dir": 1,
 "flags": 2,
 "label": "SceneTree",
-"target_class": "SceneTree",
-"dv": null
+"target_class": "SceneTree"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_8saeu"]
@@ -80,8 +79,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "SceneTree",
-"target_class": "SceneTree",
-"dv": null
+"target_class": "SceneTree"
 }, {
 "pin_name": &"exit_code",
 "type": 2,

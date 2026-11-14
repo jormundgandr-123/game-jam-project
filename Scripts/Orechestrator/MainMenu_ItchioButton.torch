@@ -33,8 +33,7 @@ pin_data = Array[Dictionary]([{
 "dir": 1,
 "flags": 2050,
 "label": "OS",
-"target_class": "OS",
-"dv": null
+"target_class": "OS"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_df05h"]
@@ -66,8 +65,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "OS",
-"target_class": "OS",
-"dv": null
+"target_class": "OS"
 }, {
 "pin_name": &"uri",
 "type": 4,
