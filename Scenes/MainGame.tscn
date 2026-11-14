@@ -1,3 +1,46 @@
 [gd_scene format=3 uid="uid://cb1s4jlwjdvcp"]
 
+[ext_resource type="Texture2D" uid="uid://c3weksqexpm18" path="res://assets/ProgressBar/PeopleProgressBarBlank.png" id="1_frf35"]
+[ext_resource type="Texture2D" uid="uid://06kfndc16i3f" path="res://assets/ProgressBar/PeopleProgressBarColor.png" id="2_yprpe"]
+
 [node name="Node2D" type="Node2D" unique_id=1549600541]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=863550586]
+custom_maximum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FlowContainer" type="FlowContainer" parent="PanelContainer" unique_id=761194255]
+custom_maximum_size = Vector2(1152, 648)
+layout_mode = 2
+vertical = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/FlowContainer" unique_id=674458273]
+custom_maximum_size = Vector2(32, 320)
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("1_frf35")
+texture_over = ExtResource("2_yprpe")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/FlowContainer" unique_id=191956563]
+custom_minimum_size = Vector2(700, 400)
+custom_maximum_size = Vector2(700, 400)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/FlowContainer" unique_id=449876055]
+custom_minimum_size = Vector2(400, 500)
+custom_maximum_size = Vector2(400, 500)
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="PanelContainer/FlowContainer/ScrollContainer" unique_id=954975080]
+custom_minimum_size = Vector2(400, 500)
+custom_maximum_size = Vector2(400, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/FlowContainer" unique_id=915962045]
+custom_minimum_size = Vector2(700, 200)
+custom_maximum_size = Vector2(700, 200)
+layout_mode = 2
+columns = 2
