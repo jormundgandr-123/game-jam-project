@@ -1,46 +1,674 @@
 [gd_scene format=3 uid="uid://cb1s4jlwjdvcp"]
 
-[ext_resource type="Texture2D" uid="uid://c3weksqexpm18" path="res://assets/ProgressBar/PeopleProgressBarBlank.png" id="1_frf35"]
-[ext_resource type="Texture2D" uid="uid://06kfndc16i3f" path="res://assets/ProgressBar/PeopleProgressBarColor.png" id="2_yprpe"]
+[sub_resource type="Gradient" id="Gradient_frf35"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.2901961, 0.2901961, 0.23529412, 1)
 
-[node name="Node2D" type="Node2D" unique_id=1549600541]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4hsvn"]
+gradient = SubResource("Gradient_frf35")
+width = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=863550586]
-custom_maximum_size = Vector2(1152, 648)
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="Gradient" id="Gradient_yprpe"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.18039216, 0.18039216, 0.14901961, 1)
 
-[node name="FlowContainer" type="FlowContainer" parent="PanelContainer" unique_id=761194255]
-custom_maximum_size = Vector2(1152, 648)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4ymja"]
+gradient = SubResource("Gradient_yprpe")
+width = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4ged"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5411765, 0.50980395, 0.4, 1)
+
+[sub_resource type="Gradient" id="Gradient_m8qwt"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.18039216, 0.18039216, 0.14901961, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kvfik"]
+gradient = SubResource("Gradient_m8qwt")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_8etcy"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.47843137, 0.5176471, 0.3137255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3bmkb"]
+gradient = SubResource("Gradient_8etcy")
+width = 1
+
+[node name="Root" type="Control" unique_id=1822355921]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1103216118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_4hsvn")
+
+[node name="Background Top" type="TextureRect" parent="." unique_id=869687210]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 59.305
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_4ymja")
+
+[node name="Outer Margin" type="MarginContainer" parent="." unique_id=1880538276]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="Outer Margin" unique_id=683474738]
 layout_mode = 2
-vertical = true
+theme_override_constants/separation = 33
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/FlowContainer" unique_id=674458273]
-custom_maximum_size = Vector2(32, 320)
+[node name="Top Bar" type="HBoxContainer" parent="Outer Margin/Content" unique_id=414237953]
 layout_mode = 2
-fill_mode = 3
-texture_under = ExtResource("1_frf35")
-texture_over = ExtResource("2_yprpe")
+size_flags_vertical = 4
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/FlowContainer" unique_id=191956563]
-custom_minimum_size = Vector2(700, 400)
-custom_maximum_size = Vector2(700, 400)
+[node name="Day Label" type="Label" parent="Outer Margin/Content/Top Bar" unique_id=866537282]
 layout_mode = 2
+size_flags_horizontal = 2
+text = "Day 2"
+vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/FlowContainer" unique_id=449876055]
-custom_minimum_size = Vector2(400, 500)
-custom_maximum_size = Vector2(400, 500)
+[node name="Title Label" type="Label" parent="Outer Margin/Content/Top Bar" unique_id=664625589]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "WarRoom"
+vertical_alignment = 1
 
-[node name="VScrollBar" type="VScrollBar" parent="PanelContainer/FlowContainer/ScrollContainer" unique_id=954975080]
-custom_minimum_size = Vector2(400, 500)
-custom_maximum_size = Vector2(400, 500)
+[node name="Round Label" type="Label" parent="Outer Margin/Content/Top Bar" unique_id=603958816]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Round 1"
+vertical_alignment = 1
+
+[node name="Workspace" type="HBoxContainer" parent="Outer Margin/Content" unique_id=903984880]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Left Side" type="HBoxContainer" parent="Outer Margin/Content/Workspace" unique_id=1529358]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/FlowContainer" unique_id=915962045]
-custom_minimum_size = Vector2(700, 200)
-custom_maximum_size = Vector2(700, 200)
+[node name="Happiness Bar" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side" unique_id=50611076]
+layout_mode = 2
+
+[node name="Happy Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=791573862]
+layout_mode = 2
+text = "Happy"
+
+[node name="Panel" type="Panel" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=1041844229]
+custom_minimum_size = Vector2(25, 0)
+custom_maximum_size = Vector2(25, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k4ged")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar/Panel" unique_id=432331363]
+clip_contents = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 23.0
+offset_bottom = 451.0
+size_flags_vertical = 3
+value = 43.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_kvfik")
+texture_progress = SubResource("GradientTexture1D_3bmkb")
+
+[node name="Angry Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=1444071019]
+layout_mode = 2
+text = "Angry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Public Mood Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=13059269]
+layout_mode = 2
+text = "Public
+Mood"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center Section" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side" unique_id=1888594715]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section" unique_id=175738917]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer" unique_id=2125890493]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Regional Map" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer/MarginContainer" unique_id=423266436]
+custom_minimum_size = Vector2(0, 110)
+custom_maximum_size = Vector2(-1, 110)
+layout_mode = 2
+
+[node name="Regional Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer/MarginContainer/Regional Map" unique_id=350082125]
+layout_mode = 2
+text = "Regional Map"
+
+[node name="Regional Selector" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer/MarginContainer/Regional Map" unique_id=433313212]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section" unique_id=290463383]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2" unique_id=574059851]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Historical Record" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer" unique_id=219968740]
+layout_mode = 2
+
+[node name="Historical Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record" unique_id=455243100]
+layout_mode = 2
+text = "Historical Record"
+
+[node name="Historical Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record" unique_id=1417598764]
+layout_mode = 2
+text = "Past events only. May not reflect the present"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record" unique_id=387908308]
+custom_minimum_size = Vector2(0, 120)
+custom_maximum_size = Vector2(-1, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer" unique_id=1169415359]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=2087378361]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=123916937]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1654392116]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=287920371]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1452359785]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1651385303]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=1091066690]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=786216204]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=2073495233]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=398059493]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1172065470]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=247763037]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=2103759447]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2055134883]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1282320582]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=902877980]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1309533294]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=399002910]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="Action" type="GridContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section" unique_id=1578495817]
+custom_minimum_size = Vector2(0, 180)
+custom_maximum_size = Vector2(-1, 180)
 layout_mode = 2
 columns = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=1433152147]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer" unique_id=1148668993]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button" unique_id=486194350]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer" unique_id=1538212260]
+layout_mode = 2
+
+[node name="Action Title" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer" unique_id=831326134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "1. Intelligence Operation"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer" unique_id=1916611736]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2057182040]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fund" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1423609424]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Funds 4000"
+
+[node name="Fund2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=608230903]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reliability ++++-"
+
+[node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=396068348]
+layout_mode = 2
+text = "x Days"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=1206748355]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2" unique_id=1238710005]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button" unique_id=1205202119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer" unique_id=177226832]
+layout_mode = 2
+
+[node name="Action Title" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer" unique_id=379319669]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "1. Intelligence Operation"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer" unique_id=895278904]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=655629188]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fund" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1314980428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Funds 4000"
+
+[node name="Fund2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=873719735]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reliability ++++-"
+
+[node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=654743476]
+layout_mode = 2
+text = "x Days"
+
+[node name="PanelContainer3" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=23819765]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3" unique_id=1257537160]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button" unique_id=1888693228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer" unique_id=811446251]
+layout_mode = 2
+
+[node name="Action Title" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer" unique_id=748544954]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "1. Intelligence Operation"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer" unique_id=1915812705]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2092396089]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fund" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1745570755]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Funds 4000"
+
+[node name="Fund2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=721889568]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reliability ++++-"
+
+[node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1177460501]
+layout_mode = 2
+text = "x Days"
+
+[node name="PanelContainer4" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=8022985]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4" unique_id=1706788869]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button" unique_id=1021531035]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer" unique_id=489871517]
+layout_mode = 2
+
+[node name="Action Title" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer" unique_id=1180328288]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "1. Intelligence Operation"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer" unique_id=1765649463]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=806468701]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fund" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1138065623]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Funds 4000"
+
+[node name="Fund2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1995881992]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reliability ++++-"
+
+[node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1958003975]
+layout_mode = 2
+text = "x Days"
+
+[node name="Right Side" type="VBoxContainer" parent="Outer Margin/Content/Workspace" unique_id=1438624865]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="Outer Margin/Content/Workspace/Right Side" unique_id=1198599727]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer" unique_id=916071571]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer" unique_id=485786343]
+layout_mode = 2
+
+[node name="Fund" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=2082307252]
+layout_mode = 2
+
+[node name="Funds Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer/Fund" unique_id=433495340]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Funds"
+
+[node name="Funds Label2" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer/Fund" unique_id=527972179]
+layout_mode = 2
+text = "xxxxx"
+
+[node name="Time" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=424306932]
+layout_mode = 2
+
+[node name="Time Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer/Time" unique_id=1990436021]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time Left"
+
+[node name="Time Label2" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer/Time" unique_id=1968098330]
+layout_mode = 2
+text = "xx Days"
+
+[node name="Memo Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=1103906882]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Memo: Current Problem"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Outer Margin/Content/Workspace/Right Side" unique_id=37034073]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer2" unique_id=712268319]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer2/MarginContainer" unique_id=883063569]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer2/MarginContainer/VBoxContainer" unique_id=1787516400]
+layout_mode = 2
+text = "Dossier: Country B"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer2/MarginContainer/VBoxContainer" unique_id=403304293]
+custom_minimum_size = Vector2(0, 120)
+custom_maximum_size = Vector2(-1, 120)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer2/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2007639549]
+custom_maximum_size = Vector2(260, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Country B Lore Goes Here
+1
+2
+3
+4
+5
+6
+7
+7
+8
+98
+2"
+autowrap_mode = 3
+justification_flags = 171
+
+[node name="PanelContainer3" type="PanelContainer" parent="Outer Margin/Content/Workspace/Right Side" unique_id=357872988]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3" unique_id=1120744761]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer" unique_id=574323669]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer" unique_id=12207885]
+layout_mode = 2
+text = "Evidence Tray ( 1 of 3 )"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer" unique_id=1590984189]
+custom_minimum_size = Vector2(0, 120)
+custom_maximum_size = Vector2(-1, 120)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1847651199]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1464877219]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer" unique_id=582539658]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1431458328]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2081796589]
+layout_mode = 2
+text = "Historical Fact"
+
+[node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=558705330]
+layout_mode = 2
+text = "1 history"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2135293630]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2" unique_id=1301830806]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer" unique_id=1711063717]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=964997780]
+layout_mode = 2
+text = "Historical Fact"
+
+[node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=1344214501]
+layout_mode = 2
+text = "1 history"
+
+[node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Right Side" unique_id=257835510]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/Button" unique_id=1751712694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/Button/MarginContainer" unique_id=1890188083]
+layout_mode = 2
+text = "Go To Speech"
+horizontal_alignment = 1

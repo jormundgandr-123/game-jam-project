@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://28td2npoo15h"]
 
+[ext_resource type="FontFile" uid="uid://byl66msqyes4n" path="res://assets/Fonts/PixelifySans-Regular.ttf" id="1_x238d"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0jhy"]
 content_margin_left = 8.0
 content_margin_top = 8.0
@@ -1164,6 +1166,7 @@ expand_margin_bottom = 6.0
 
 [resource]
 resource_local_to_scene = true
+default_font = ExtResource("1_x238d")
 AcceptDialog/styles/panel = SubResource("StyleBoxFlat_d0jhy")
 Button/colors/font_color = Color(0.16862746, 0.16470589, 0.13333334, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
