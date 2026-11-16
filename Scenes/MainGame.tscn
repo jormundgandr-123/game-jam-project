@@ -16,13 +16,6 @@ colors = PackedColorArray(0.18039216, 0.18039216, 0.14901961, 1)
 gradient = SubResource("Gradient_yprpe")
 width = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4ged"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5411765, 0.50980395, 0.4, 1)
-
 [sub_resource type="Gradient" id="Gradient_m8qwt"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0)
@@ -90,18 +83,21 @@ alignment = 1
 [node name="Day Label" type="Label" parent="Outer Margin/Content/Top Bar" unique_id=866537282]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_type_variation = &"Label_Light"
 text = "Day 2"
 vertical_alignment = 1
 
 [node name="Title Label" type="Label" parent="Outer Margin/Content/Top Bar" unique_id=664625589]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_type_variation = &"Label_Light"
 text = "WarRoom"
 vertical_alignment = 1
 
 [node name="Round Label" type="Label" parent="Outer Margin/Content/Top Bar" unique_id=603958816]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_type_variation = &"Label_Light"
 text = "Round 1"
 vertical_alignment = 1
 
@@ -113,31 +109,42 @@ theme_override_constants/separation = 16
 [node name="Left Side" type="HBoxContainer" parent="Outer Margin/Content/Workspace" unique_id=1529358]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Happiness Bar" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side" unique_id=50611076]
 layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
 
 [node name="Happy Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=791573862]
 layout_mode = 2
+theme_type_variation = &"Label_Light"
 text = "Happy"
 
-[node name="Panel" type="Panel" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=1041844229]
-custom_minimum_size = Vector2(25, 0)
-custom_maximum_size = Vector2(25, -1)
+[node name="HBoxContainer" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=742900599]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_k4ged")
+alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar/Panel" unique_id=432331363]
+[node name="PanelContainer" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar/HBoxContainer" unique_id=702191303]
+custom_maximum_size = Vector2(25, -1)
+propagate_maximum_size = false
 clip_contents = true
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 23.0
-offset_bottom = 451.0
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar/HBoxContainer/PanelContainer" unique_id=562135697]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar/HBoxContainer/PanelContainer/MarginContainer" unique_id=432331363]
+clip_contents = true
+layout_mode = 2
 value = 43.0
 fill_mode = 3
 nine_patch_stretch = true
@@ -146,12 +153,14 @@ texture_progress = SubResource("GradientTexture1D_3bmkb")
 
 [node name="Angry Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=1444071019]
 layout_mode = 2
+theme_type_variation = &"Label_Light"
 text = "Angry"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Public Mood Label" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Happiness Bar" unique_id=13059269]
 layout_mode = 2
+theme_type_variation = &"Label_Light"
 text = "Public
 Mood"
 horizontal_alignment = 1
@@ -210,6 +219,10 @@ text = "Past events only. May not reflect the present"
 custom_minimum_size = Vector2(0, 120)
 custom_maximum_size = Vector2(-1, 120)
 layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_hint_mode = 1
+tile_scroll_hint = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer" unique_id=1169415359]
 layout_mode = 2
@@ -227,6 +240,10 @@ text = "Historical fact 1"
 [node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1654392116]
 layout_mode = 2
 text = "+ Evidence"
+
+[node name="HSeparator" type="HSeparator" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=1490315296]
+layout_mode = 2
+theme_type_variation = &"HSeparator_Dotted"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/PanelContainer2/MarginContainer/Historical Record/ScrollContainer/VBoxContainer" unique_id=287920371]
 layout_mode = 2
@@ -342,6 +359,7 @@ text = "Reliability ++++-"
 
 [node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=396068348]
 layout_mode = 2
+size_flags_vertical = 1
 text = "x Days"
 
 [node name="PanelContainer2" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=1206748355]
@@ -392,6 +410,7 @@ text = "Reliability ++++-"
 
 [node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer2/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=654743476]
 layout_mode = 2
+size_flags_vertical = 1
 text = "x Days"
 
 [node name="PanelContainer3" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=23819765]
@@ -442,6 +461,7 @@ text = "Reliability ++++-"
 
 [node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer3/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1177460501]
 layout_mode = 2
+size_flags_vertical = 1
 text = "x Days"
 
 [node name="PanelContainer4" type="PanelContainer" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action" unique_id=8022985]
@@ -492,6 +512,7 @@ text = "Reliability ++++-"
 
 [node name="Label2" type="Label" parent="Outer Margin/Content/Workspace/Left Side/Center Section/Action/PanelContainer4/Button/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1958003975]
 layout_mode = 2
+size_flags_vertical = 1
 text = "x Days"
 
 [node name="Right Side" type="VBoxContainer" parent="Outer Margin/Content/Workspace" unique_id=1438624865]
@@ -525,6 +546,9 @@ text = "Funds"
 layout_mode = 2
 text = "xxxxx"
 
+[node name="HSeparator" type="HSeparator" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=1822328696]
+layout_mode = 2
+
 [node name="Time" type="HBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=424306932]
 layout_mode = 2
 
@@ -536,6 +560,9 @@ text = "Time Left"
 [node name="Time Label2" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer/Time" unique_id=1968098330]
 layout_mode = 2
 text = "xx Days"
+
+[node name="HSeparator2" type="HSeparator" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=1081624455]
+layout_mode = 2
 
 [node name="Memo Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer/MarginContainer/VBoxContainer" unique_id=1103906882]
 layout_mode = 2
@@ -564,6 +591,8 @@ custom_minimum_size = Vector2(0, 120)
 custom_maximum_size = Vector2(-1, 120)
 layout_mode = 2
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_hint_mode = 1
 
 [node name="Label" type="Label" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer2/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2007639549]
 custom_maximum_size = Vector2(260, -1)
@@ -607,6 +636,8 @@ custom_minimum_size = Vector2(0, 120)
 custom_maximum_size = Vector2(-1, 120)
 layout_mode = 2
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_hint_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Outer Margin/Content/Workspace/Right Side/PanelContainer3/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1847651199]
 layout_mode = 2
@@ -659,6 +690,7 @@ text = "1 history"
 [node name="Button" type="Button" parent="Outer Margin/Content/Workspace/Right Side" unique_id=257835510]
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"Button_Green"
 
 [node name="MarginContainer" type="MarginContainer" parent="Outer Margin/Content/Workspace/Right Side/Button" unique_id=1751712694]
 layout_mode = 1
