@@ -1,0 +1,186 @@
+[orchestration type="OScript" load_steps=14 format=4 uid="uid://b6bdn8oe8olan"]
+
+[obj type="OScriptFunction" id="OScriptFunction_yprpe"]
+guid = "15A8A09F-2988-4E9E-B6C1-3CF3F5AD114C"
+method = {
+"name": &"NewFunction"
+}
+user_defined = true
+id = 0
+
+[obj type="OScriptFunction" id="OScriptFunction_8etcy"]
+guid = "07366485-B2DF-4C70-ACA0-74E22CD8A1B1"
+method = {
+"name": &"_ready",
+"flags": 8
+}
+id = 7
+
+[obj type="OScriptGraph" id="OScriptGraph_orolp"]
+graph_name = &"EventGraph"
+flags = 8
+nodes = Array[int]([3, 4, 5, 6, 7])
+functions = Array[int]([7])
+
+[obj type="OScriptGraph" id="OScriptGraph_321ql"]
+graph_name = &"NewFunction"
+flags = 22
+nodes = Array[int]([0, 1])
+functions = Array[int]([0])
+
+[obj type="OScriptNodeFunctionEntry" id="OScriptNodeFunctionEntry_d4f28"]
+function_id = "15A8A09F-2988-4E9E-B6C1-3CF3F5AD114C"
+id = 0
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[obj type="OScriptNodeFunctionResult" id="OScriptNodeFunctionResult_iuea6"]
+function_id = "15A8A09F-2988-4E9E-B6C1-3CF3F5AD114C"
+id = 1
+position = Vector2(300, 0)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}])
+
+[obj type="OScriptNodeAutoload" id="OScriptNodeAutoload_frf35"]
+autoload = "GameManager"
+id = 3
+position = Vector2(-200, 140)
+pin_data = Array[Dictionary]([{
+"pin_name": &"autoload",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "GameManager",
+"target_class": "Node",
+"dv": null
+}])
+
+[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_yprpe"]
+function_name = &"InitGame"
+target_class_name = "Node"
+target_type = 24
+flags = 520
+method = {
+"name": &"InitGame",
+"return": {
+"usage": 0
+},
+"args": [{
+"name": &"ProgressBar_PublicMood",
+"type": 24,
+"class_name": &"TextureProgressBar",
+"usage": 0
+}, {
+"name": &"VBox_HistoricalRecord",
+"type": 24,
+"class_name": &"VBoxContainer",
+"usage": 0
+}]
+}
+chain = false
+id = 4
+size = Vector2(255, 156)
+position = Vector2(100, 80)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"target",
+"type": 24,
+"flags": 2050,
+"label": "Node",
+"target_class": "Node",
+"dv": null
+}, {
+"pin_name": &"ProgressBar_PublicMood",
+"type": 24,
+"flags": 2,
+"target_class": "TextureProgressBar",
+"dv": null,
+"usage": 0
+}, {
+"pin_name": &"VBox_HistoricalRecord",
+"type": 24,
+"flags": 2,
+"target_class": "VBoxContainer",
+"dv": null,
+"usage": 0
+}, {
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[obj type="OScriptNodeVariableGet" id="OScriptNodeVariableGet_ybmw1"]
+variable_name = &"HistoricalRecordContainer"
+id = 5
+position = Vector2(-280, 300)
+pin_data = Array[Dictionary]([{
+"pin_name": &"value",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "HistoricalRecordContainer",
+"target_class": "VBoxContainer",
+"dv": null
+}])
+
+[obj type="OScriptNodeVariableGet" id="OScriptNodeVariableGet_321ql"]
+variable_name = &"ProgressionBar"
+id = 6
+position = Vector2(-200, 220)
+pin_data = Array[Dictionary]([{
+"pin_name": &"value",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "ProgressionBar",
+"target_class": "TextureProgressBar",
+"dv": null
+}])
+
+[obj type="OScriptNodeEvent" id="OScriptNodeEvent_frf35"]
+function_id = "07366485-B2DF-4C70-ACA0-74E22CD8A1B1"
+id = 7
+position = Vector2(-160, 60)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[obj type="OScriptVariable" id="OScriptVariable_3bmkb"]
+name = "ProgressionBar"
+category = "Default"
+exported = true
+info = {
+"name": &"ProgressionBar",
+"type": 24,
+"class_name": &"TextureProgressBar"
+}
+default_value = null
+
+[obj type="OScriptVariable" id="OScriptVariable_48eim"]
+name = "HistoricalRecordContainer"
+category = "Default"
+exported = true
+info = {
+"name": &"HistoricalRecordContainer",
+"type": 24,
+"class_name": &"VBoxContainer"
+}
+default_value = null
+
+[resource]
+base_type = &"Control"
+brief_description = "Empty template suitable for all Objects"
+variables = Array[OScriptVariable]([SubResource("OScriptVariable_3bmkb"), SubResource("OScriptVariable_48eim")])
+functions = Array[OScriptFunction]([SubResource("OScriptFunction_yprpe"), SubResource("OScriptFunction_8etcy")])
+connections = Array[int]([0, 0, 1, 0, 7, 0, 4, 0, 3, 0, 4, 1, 6, 0, 4, 2, 5, 0, 4, 3])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeFunctionEntry_d4f28"), SubResource("OScriptNodeFunctionResult_iuea6"), SubResource("OScriptNodeAutoload_frf35"), SubResource("OScriptNodeCallMemberFunction_yprpe"), SubResource("OScriptNodeVariableGet_ybmw1"), SubResource("OScriptNodeVariableGet_321ql"), SubResource("OScriptNodeEvent_frf35")])
+graphs = Array[OScriptGraph]([SubResource("OScriptGraph_orolp"), SubResource("OScriptGraph_321ql")])

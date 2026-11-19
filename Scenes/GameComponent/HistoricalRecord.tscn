@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://duu1okegnjm0d"]
+
+[ext_resource type="Script" uid="uid://d2bjg212ondel" path="res://Scenes/GameComponent/historical_record.torch" id="1_pmwg1"]
+
+[node name="HistoricalRecord" type="VBoxContainer" unique_id=687920216 node_paths=PackedStringArray("LabelComp")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmwg1")
+LabelComp = NodePath("HBoxContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=21824523]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=557032718]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Historical fact 1
+asdfa"
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=562488620]
+layout_mode = 2
+text = "+ Evidence"
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1127569706]
+layout_mode = 2
+theme_type_variation = &"HSeparator_Dotted"

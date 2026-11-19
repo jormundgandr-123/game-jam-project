@@ -17,7 +17,7 @@ id = 7
 [obj type="OScriptGraph" id="OScriptGraph_10o0e"]
 graph_name = &"EventGraph"
 flags = 8
-nodes = Array[int]([4, 5, 6, 7])
+nodes = Array[int]([4, 7, 8, 9])
 functions = Array[int]([4, 7])
 
 [obj type="OScriptNodeEvent" id="OScriptNodeEvent_853f1"]
@@ -30,38 +30,52 @@ pin_data = Array[Dictionary]([{
 "flags": 4
 }])
 
-[obj type="OScriptNodeSceneTree" id="OScriptNodeSceneTree_m8qwt"]
-id = 5
-position = Vector2(200, 520)
+[obj type="OScriptNodeEvent" id="OScriptNodeEvent_4ymja"]
+function_id = "6088AEE3-751C-4D69-87E3-166886DE90B5"
+id = 7
+position = Vector2(-73.5, 0)
 pin_data = Array[Dictionary]([{
-"pin_name": &"scene_tree",
-"type": 24,
+"pin_name": &"ExecOut",
 "dir": 1,
-"flags": 2,
-"target_class": "SceneTree"
+"flags": 4
 }])
 
-[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_8etcy"]
-function_name = &"change_scene_to_file"
-target_class_name = "SceneTree"
+[obj type="OScriptNodeAutoload" id="OScriptNodeAutoload_df05h"]
+autoload = "GameManager"
+id = 8
+position = Vector2(200, 540)
+pin_data = Array[Dictionary]([{
+"pin_name": &"autoload",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "GameManager",
+"target_class": "Node",
+"dv": null
+}])
+
+[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_df05h"]
+function_name = &"PlayGame"
+target_class_name = "Node"
 target_type = 24
 flags = 520
 method = {
-"name": &"change_scene_to_file",
+"name": &"PlayGame",
 "return": {
 "type": 2,
 "class_name": &"Error",
-"usage": 65542
+"usage": 65536
 },
 "args": [{
-"name": &"path",
-"type": 4
+"name": &"Scenario",
+"type": 4,
+"usage": 0
 }]
 }
 chain = false
-id = 6
-size = Vector2(241, 126)
-position = Vector2(460, 440)
+id = 9
+size = Vector2(270, 126)
+position = Vector2(480, 440)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -69,13 +83,15 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"target",
 "type": 24,
 "flags": 2050,
-"label": "SceneTree",
-"target_class": "SceneTree"
+"label": "Node",
+"target_class": "Node",
+"dv": null
 }, {
-"pin_name": &"path",
+"pin_name": &"Scenario",
 "type": 4,
 "flags": 2,
-"dv": "res://Scenes/MainGame.tscn"
+"dv": "Normal",
+"usage": 0
 }, {
 "pin_name": &"ExecOut",
 "dir": 1,
@@ -87,23 +103,13 @@ pin_data = Array[Dictionary]([{
 "flags": 33554434,
 "label": "Error",
 "target_class": "Error",
-"usage": 65542
-}])
-
-[obj type="OScriptNodeEvent" id="OScriptNodeEvent_4ymja"]
-function_id = "6088AEE3-751C-4D69-87E3-166886DE90B5"
-id = 7
-position = Vector2(-73.5, 0)
-pin_data = Array[Dictionary]([{
-"pin_name": &"ExecOut",
-"dir": 1,
-"flags": 4
+"usage": 65536
 }])
 
 [resource]
 base_type = &"Button"
 description = "Base template for Node with default Godot cycle methods."
 functions = Array[OScriptFunction]([SubResource("OScriptFunction_tt5f1"), SubResource("OScriptFunction_4hsvn")])
-connections = Array[int]([4, 0, 6, 0, 5, 0, 6, 1])
-nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_853f1"), SubResource("OScriptNodeSceneTree_m8qwt"), SubResource("OScriptNodeCallMemberFunction_8etcy"), SubResource("OScriptNodeEvent_4ymja")])
+connections = Array[int]([4, 0, 9, 0, 8, 0, 9, 1])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_853f1"), SubResource("OScriptNodeEvent_4ymja"), SubResource("OScriptNodeAutoload_df05h"), SubResource("OScriptNodeCallMemberFunction_df05h")])
 graphs = Array[OScriptGraph]([SubResource("OScriptGraph_10o0e")])
